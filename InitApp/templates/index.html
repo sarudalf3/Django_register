@@ -1,0 +1,73 @@
+{% extends "baseWeb.html" %}
+
+{% block title %}  Log in / Sign Up  {% endblock %} 
+
+
+
+{% block body %}
+
+{% include "sections/menu.html" %}
+
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-5 offset-1">
+            <div class="form">
+                <h1>Sign Up</h1>
+                <form action="/SignUp/" method="POST"> <!--Sign Up form-->
+                    {% csrf_token %}
+
+                    <div class="col-md-8 form-group">
+                        <label for="first_name_id" class="form_label">First Name<span class="req">*</span> </label>
+                        <input type="text" class="form-control" required autocomplete="off" id="first_name_id" name="first_name">
+                    </div>
+
+                    <div class="col-md-8 form-group">
+                        <label for="last_name_id" class="form_label">Last Name<span class="req">*</span></label>
+                        <input type="text" class="form-control" required autocomplete="off" id="last_name_id" name="last_name">
+                    </div>
+                    <div class="col-md-8 form-group">
+                        <label for="email_id" class="form_label">Email Address<span class="req">*</span></label>
+                        <input type="email" class="form-control" required autocomplete="off" id="email_id" name="email">
+                    </div>
+                    <div class="col-md-5 form-group">
+                        <label for="bday_id" class="form_label">Birthday Date<span class="req">*</span></label>
+                        <input type="date" class="form-control" required autocomplete="off" id="bday_id" name="bday">
+                    </div>
+                    <div class="col-md-7 form-group">
+                        <label for="pwd_id" class="form_label">Password<span class="req">*</span></label>
+                        <input type="password" class="form-control" required autocomplete="off" id="pwd_id" name="pwd">
+                    </div>
+                    <div class="col-md-7 form-group">
+                        <label for="check_pwd_id" class="form_label">Confirm Password<span class="req">*</span></label>
+                        <input type="password" class="form-control" required autocomplete="off" id="check_pwd_id" name="check_pwd">
+                    </div>        
+                    <button type="submit" class="btn btn-primary mt-3">Sign In</button>
+                </form>
+            </div>
+        </div>        
+        <div class="col-5 offset-1">
+            <div id="login">   
+                <h1>Log In</h1>
+                <form action="/logIn/" method="post"> <!--Sign In form-->
+                    {% csrf_token %}
+                    <div class="col-md-8 form-group">
+                        <label for="email_id" class="form_label">Email Address<span class="req">*</span></label>
+                        <input type="email" class="form-control" required autocomplete="off" id="email_id" name="email">
+                    </div>
+                    <div class="col-md-7 form-group">
+                        <label for="pwd_id" class="form_label">Password<span class="req">*</span></label>
+                        <input type="password" class="form-control" required autocomplete="off" id="pwd_id" name="pwd">
+                    </div>
+                    <!--<p class="forgot"><a href="#">Forgot Password?</a></p>-->
+                    <button type="submit" class="btn btn-primary mt-3">Log In</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>    
+    {% endblock %}
+
+{% block scripts %}
+    {% load static %}
+    <script scr="{% static 'js/forms.js' %}"></script>
+{% endblock %}

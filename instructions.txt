@@ -1,0 +1,4 @@
+1 Install bcrypt
+pip install bcrypt
+
+2 Create templates with login

@@ -1,0 +1,12 @@
+{% extends "baseWeb.html" %}
+
+{% block title %}  My Account  {% endblock %} 
+
+{% block body %}
+
+{% include 'sections/menu.html' %}
+<div class="container">
+    <h4 class="mt-3">Success. Welcome, {{request.session.user.name}} ({{request.session.user.email}})</h4>
+    <h5 style="color:green"> Succesfully logged on website</h5>
+</div>
+{% endblock %}
